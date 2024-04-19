@@ -24,9 +24,13 @@ if "instantid" not in folder_paths.folder_names_and_paths:
     current_paths = [MODELS_DIR]
 else:
     current_paths, _ = folder_paths.folder_names_and_paths["instantid"]
+if os.path.exists('/stable-diffusion-cache/models/instantid'):
+    current_paths.append('/stable-diffusion-cache/models/instantid')
 folder_paths.folder_names_and_paths["instantid"] = (current_paths, folder_paths.supported_pt_extensions)
 
 INSIGHTFACE_DIR = os.path.join(folder_paths.models_dir, "insightface")
+if os.path.exists('/stable-diffusion-cache/models/insightface'):
+    INSIGHTFACE_DIR = '/stable-diffusion-cache/models/insightface'
 
 def draw_kps(image_pil, kps, color_list=[(255,0,0), (0,255,0), (0,0,255), (255,255,0), (255,0,255)]):
     stickwidth = 4
